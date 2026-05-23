@@ -233,6 +233,10 @@ h1, h2, h3, h4, h5, h6, p { overflow-wrap: anywhere; word-break: normal; hyphens
     z-index: 1002;
     position: relative;
     gap: 4px;
+    background: none;
+    border: none;
+    padding: 0;
+    outline: none;
 }
 
 .hamburger span {
@@ -1933,17 +1937,17 @@ h1, h2, h3, h4, h5, h6, p { overflow-wrap: anywhere; word-break: normal; hyphens
         width: min(48%, 280px);
     }
 
-    .icon-love {
+    .hero-title img.icon-love {
         right: 5%;
         top: -30px;
     }
 
-    .icon-share {
+    .hero-title img.icon-share {
         right: 10px;
         top: 40px;
     }
 
-    .icon-rocket {
+    .hero-title img.icon-rocket {
         left: 8px;
         top: 80px;
     }
@@ -2011,8 +2015,24 @@ h1, h2, h3, h4, h5, h6, p { overflow-wrap: anywhere; word-break: normal; hyphens
         padding: 3.5rem 20px;
     }
 
+    /* Try Free Centering on Mobile */
+    .try-free-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .try-free-text {
+        text-align: center;
+    }
+    
+    .try-free-text .btn {
+        margin: 0 auto;
+    }
+
+    /* Footer Centering on Mobile */
     .footer {
         padding: 2rem 16px 1rem;
+        text-align: center;
     }
 
     .footer-content {
@@ -2020,12 +2040,55 @@ h1, h2, h3, h4, h5, h6, p { overflow-wrap: anywhere; word-break: normal; hyphens
         gap: 2rem;
     }
 
+    .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo p {
+        margin: 1rem auto 1.5rem;
+        max-width: 500px;
+    }
+
     .footer-right {
-        justify-content: flex-start;
+        justify-content: center;
+        width: 100%;
     }
 
     .footer-columns {
-        gap: 48px;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        gap: 32px;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        text-align: center;
+        width: 100%;
+    }
+
+    .footer-section ul {
+        display: inline-block;
+        text-align: center;
+    }
+
+    .social-list li {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
     }
 }
 
@@ -2063,10 +2126,7 @@ h1, h2, h3, h4, h5, h6, p { overflow-wrap: anywhere; word-break: normal; hyphens
         font-size: 18px;
     }
 
-    .try-free-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+
 
     /* Keep hero characters side-by-side on small screens */
     .hero-image {
@@ -2088,7 +2148,7 @@ h1, h2, h3, h4, h5, h6, p { overflow-wrap: anywhere; word-break: normal; hyphens
 
 @media (max-width: 480px) {
     .logo {
-        margin: 0 16px;
+        margin: 0;
     }
 
     .nav-container {
@@ -2103,10 +2163,10 @@ h1, h2, h3, h4, h5, h6, p { overflow-wrap: anywhere; word-break: normal; hyphens
         height: auto;
     }
 
-    /* Icon responsive placement on small phones */
-    .icon-love { top: -12px; right: 10px; }
-    .icon-share { top: 36px; right: 12px; }
-    .icon-rocket { top: 78px; left: 10px; }
+    /* Icon responsive placement on small phones with matching specificity */
+    .hero-title img.icon-love { top: -12px; right: 10px; }
+    .hero-title img.icon-share { top: 36px; right: 12px; }
+    .hero-title img.icon-rocket { top: 78px; left: 10px; }
 
     .hero-title {
         font-size: 32px;
@@ -2119,7 +2179,13 @@ h1, h2, h3, h4, h5, h6, p { overflow-wrap: anywhere; word-break: normal; hyphens
     }
 
     .hero-buttons {
-        gap: 8px;
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
     }
 
     .explore-text button {

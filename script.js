@@ -455,3 +455,47 @@ if ('serviceWorker' in navigator) {
             });
     });
 }
+
+// Theme Toggle Functionality
+const themeToggle = document.getElementById('theme-toggle');
+
+// Function to apply theme
+const applyTheme = (theme) => {
+    const favicon = document.getElementById('favicon');
+    if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+        if (favicon) {
+            favicon.href = 'assets/svg/blossomDark.svg';
+        }
+    } else {
+        document.body.classList.remove('dark-mode');
+        if (favicon) {
+            favicon.href = 'assets/svg/blossom.svg';
+        }
+    }
+};
+
+// Initial theme setup (checked against localStorage or system preference)
+const getInitialTheme = () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        return savedTheme;
+    }
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return systemPrefersDark ? 'dark' : 'light';
+};
+
+// Setup initial theme
+const currentTheme = getInitialTheme();
+applyTheme(currentTheme);
+
+// Handle click event on the toggle button
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.contains('dark-mode');
+        const newTheme = isDark ? 'light' : 'dark';
+        
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+}

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blossom - A Safe Place For Your Kids</title>
+    <link rel="icon" type="image/svg+xml" href="assets/svg/blossom.svg" id="favicon">
     <link rel="stylesheet" href="styles.css?v=2.3">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -12,12 +13,27 @@
 </head>
 
 <body>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+                const favicon = document.getElementById('favicon');
+                if (favicon) {
+                    favicon.href = 'assets/svg/blossomDark.svg';
+                }
+            }
+        })();
+    </script>
 
     <header class="header">
         <div class="nav-container container">
             <div class="logo">
                 <a href="#home" aria-label="Blossom - Home">
-                    <img src="assets/svg/blossom.svg" alt="Blossom logo" />
+                    <img src="assets/svg/blossom.svg" alt="Blossom logo" class="logo-light" />
+                    <img src="assets/svg/blossomDark.svg" alt="Blossom logo" class="logo-dark" />
                 </a>
             </div>
 
@@ -32,6 +48,10 @@
                 </nav>
 
                 <a href="#how-it-works" class="btn-header-cta" aria-label="Download Blossom App">Download App</a>
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon moon-icon"></i>
+                    <i class="fas fa-sun sun-icon"></i>
+                </button>
             </div>
 
             <!-- Hamburger button -->
@@ -586,7 +606,8 @@
                 <!-- Left Section (Logo + Text + Download Buttons) -->
                 <div class="footer-section footer-left">
                     <div class="footer-logo">
-                        <img src="assets/svg/blossom.svg" alt="Blossom Logo">
+                        <img src="assets/svg/blossom.svg" alt="Blossom Logo" class="logo-light">
+                        <img src="assets/svg/blossomDark.svg" alt="Blossom Logo" class="logo-dark">
                         <p>
                             The First Safe & Edutainment and Social Platform for Arab Kids.
                             Discover a world of fun, learning, and inspiring stories tailored

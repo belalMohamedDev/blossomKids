@@ -1930,7 +1930,7 @@ h1, h2, h3, h4, h5, h6, p { overflow-wrap: anywhere; word-break: normal; hyphens
 
 @media (max-width: 992px) {
     .hero {
-        padding-top: 110px;
+        padding-top: 140px;
         padding-bottom: 50px;
         min-height: auto;
     }

@@ -1574,7 +1574,7 @@ body.dark-mode .logo-dark {
     position: relative;
     overflow: hidden;
     color: var(--text-primary);
-    background-image: url('assets/svg/Try EduPlay for free.svg');
+    background-image: url('assets/svg/Try Blossom for free.svg');
     background-size: cover;
     background-position: center;
     padding: clamp(4rem, 8vw, 8rem) 0;

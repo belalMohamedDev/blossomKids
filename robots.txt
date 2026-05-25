@@ -1,0 +1,14 @@
+# Robots.txt for Blossom Kids App
+# Crawlability configurations for search engine bots
+
+User-agent: *
+Allow: /
+Allow: /assets/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /auth/
+Disallow: /api/
+Disallow: /private/
+
+# Sitemap Link
+Sitemap: https://blossomkidsapp.com/sitemap.xml
